@@ -30,6 +30,7 @@ function drawPath(path: SVGPathElement, duration: number, delay: number) {
 }
 
 function drawKalf() {
+  // TODO: use svg animate for perf
   const path = drawingContainer.querySelector('path') as SVGPathElement;
   drawPath(path, 2500, 25);
 }
