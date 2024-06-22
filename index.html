@@ -4,7 +4,7 @@
   <script defer data-domain="kalf.no" src="https://plausible.kakk.dev/js/script.js"></script>
 </head>
 <html lang="en">
-  <body class="flex flex-col h-screen p-10">
+  <body class="flex flex-col p-10">
     <h1 class="font-mono text-4xl">kalf.no</h1>
 
     <div class="flex flex-col items-center justify-center flex-grow">
@@ -23,3 +23,10 @@
   </body>
   <script type="module" src="src/main.ts"></script>
 </html>
+
+<style>
+  /* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser/72245072#72245072 */
+  body {
+    height: 100dvh;
+  }
+</style>
