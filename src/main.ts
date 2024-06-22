@@ -40,6 +40,19 @@ function loadKalf() {
   drawingContainer.innerHTML = randomDrawing;
 }
 
+function jumpKalf() {
+  drawingContainer.style.transitionDuration = '150ms';
+  drawingContainer.style.transitionTimingFunction = 'ease-out';
+  drawingContainer.style.transitionProperty = 'transform';
+  drawingContainer.style.transform = 'translateY(-50px)';
+  setTimeout(() => {
+    drawingContainer.style.transitionDuration = '100ms';
+    drawingContainer.style.transitionTimingFunction = 'ease-in'
+    drawingContainer.style.transform = 'translateY(0px)'
+  }, 150);
+}
+
 newButton.addEventListener('click', loadKalf)
+drawingContainer.addEventListener('click', jumpKalf)
 loadKalf()
 drawKalf()
