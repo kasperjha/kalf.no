@@ -31,7 +31,7 @@ function drawPath(path: SVGPathElement, duration: number, delay: number) {
 
 function drawKalf() {
   const path = drawingContainer.querySelector('path') as SVGPathElement;
-  drawPath(path, 2500, 5);
+  drawPath(path, 2500, 25);
 }
 
 function loadKalf() {
