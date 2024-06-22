@@ -1,9 +1,9 @@
 import './index.css';
 
-const kalfOne = require('/drawing-1.svg?raw') as string;
-const kalfTwo = require('/drawing-2.svg?raw') as string;
-const kalfThree = require('/drawing-3.svg?raw') as string;
-const kalfFour = require('/drawing-4.svg?raw') as string;
+import kalfOne from '/drawing-1.svg?raw';
+import kalfTwo from '/drawing-2.svg?raw';
+import kalfThree from '/drawing-3.svg?raw';
+import kalfFour from '/drawing-4.svg?raw';
 
 const drawings = [kalfOne, kalfTwo, kalfThree, kalfFour];
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
