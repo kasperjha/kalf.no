@@ -31,14 +31,14 @@ function drawPath(path: SVGPathElement, duration: number, delay: number) {
 
 function drawKalf() {
   const path = drawingContainer.querySelector('path') as SVGPathElement;
-  drawPath(path, 1000, 5);
+  drawPath(path, 2500, 5);
 }
 
 function loadKalf() {
   const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
   drawingContainer.innerHTML = randomDrawing;
-  drawKalf();
 }
 
 newButton.addEventListener('click', loadKalf)
 loadKalf()
+drawKalf()
