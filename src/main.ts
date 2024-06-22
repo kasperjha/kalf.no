@@ -9,9 +9,31 @@ const drawings = [kalfOne, kalfTwo, kalfThree, kalfFour];
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
 const newButton = document.getElementById('kalf-new') as HTMLButtonElement;
 
+function drawPath(path: SVGPathElement, duration: number, delay: number) {
+  let pathLength = path.getTotalLength();
+  path.style.strokeDasharray = pathLength.toString();
+  path.style.strokeDashoffset = pathLength.toString();
+
+  let numSteps = (duration / delay);
+
+  const step = () => {
+    pathLength -= pathLength / numSteps;
+    path.style.strokeDashoffset = pathLength.toString();
+
+    if(1 <= numSteps ) {
+      numSteps -= 1;
+      setTimeout(step, delay);
+    }
+  }
+
+  step()
+}
+
 function loadRandomDrawing() {
   const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
   drawingContainer.innerHTML = randomDrawing;
+  const path = drawingContainer.querySelector('path') as SVGPathElement;
+  drawPath(path, 1000, 5);
 }
 
 newButton.addEventListener('click', loadRandomDrawing)
