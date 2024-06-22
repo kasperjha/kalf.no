@@ -29,12 +29,12 @@ function drawPath(path: SVGPathElement, duration: number, delay: number) {
   step()
 }
 
-function loadRandomDrawing() {
+function loadKalf() {
   const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
   drawingContainer.innerHTML = randomDrawing;
   const path = drawingContainer.querySelector('path') as SVGPathElement;
   drawPath(path, 1000, 5);
 }
 
-newButton.addEventListener('click', loadRandomDrawing)
-loadRandomDrawing()
+newButton.addEventListener('click', loadKalf)
+loadKalf()
