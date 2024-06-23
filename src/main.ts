@@ -6,7 +6,18 @@ import kalfThree from '/drawing-3.svg?raw';
 import kalfFour from '/drawing-4.svg?raw';
 import kalfDana from '/dana.svg?raw';
 
-const drawings = [kalfOne, kalfTwo, kalfThree, kalfFour, kalfDana];
+interface KalfSubmission {
+  svg: string
+}
+
+const drawings: KalfSubmission[] = [
+  { svg: kalfOne },
+  { svg: kalfTwo },
+  { svg: kalfThree },
+  { svg: kalfFour },
+  { svg: kalfDana },
+];
+
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
 const newButton = document.getElementById('kalf-new') as HTMLButtonElement;
 
@@ -38,7 +49,7 @@ function drawKalf() {
 
 function loadKalf() {
   const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
-  drawingContainer.innerHTML = randomDrawing;
+  drawingContainer.innerHTML = randomDrawing.svg;
 }
 
 function jumpKalf() {
