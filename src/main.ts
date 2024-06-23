@@ -6,8 +6,15 @@ import kalfThree from '/drawing-3.svg?raw';
 import kalfFour from '/drawing-4.svg?raw';
 import kalfDana from '/dana.svg?raw';
 
+interface KalfCredit {
+  by: string,
+  byLink?: string,
+  date?: string,
+}
+
 interface KalfSubmission {
   svg: string
+  credit?: KalfCredit
 }
 
 const drawings: KalfSubmission[] = [
@@ -15,11 +22,12 @@ const drawings: KalfSubmission[] = [
   { svg: kalfTwo },
   { svg: kalfThree },
   { svg: kalfFour },
-  { svg: kalfDana },
+  { svg: kalfDana, credit: { by: '@dana_krm', byLink: 'https://instagram.com/dana_krm', date: '2026-06-23'} },
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
 const newButton = document.getElementById('kalf-new') as HTMLButtonElement;
+const creditContainer = document.getElementById('kalf-credit') as HTMLDivElement;
 
 function drawPath(path: SVGPathElement, duration: number, delay: number) {
   let pathLength = path.getTotalLength();
@@ -47,9 +55,20 @@ function drawKalf() {
   drawPath(path, 2500, 25);
 }
 
+function updateCredits(credit?: KalfCredit) {
+  if(credit) {
+    const nameHTML = credit.byLink ? `<a href="${credit.byLink}">${credit.by}</a>` : credit.by;
+    const dateHTML = credit.date? `<br>${credit.date}` : '';
+    creditContainer.innerHTML = 'by ' + nameHTML + dateHTML;
+  } else {
+    creditContainer.innerHTML = '';
+  }
+}
+
 function loadKalf() {
   const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
   drawingContainer.innerHTML = randomDrawing.svg;
+  updateCredits(randomDrawing.credit);
 }
 
 function jumpKalf() {
