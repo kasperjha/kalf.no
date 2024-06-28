@@ -34,7 +34,8 @@ const drawings: KalfSubmission[] = [
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
-const newButton = document.getElementById('kalf-new') as HTMLButtonElement;
+const drawButton = document.getElementById('kalf-draw') as HTMLButtonElement;
+const nextButton = document.getElementById('kalf-next') as HTMLButtonElement;
 const creditContainer = document.getElementById('kalf-credit') as HTMLDivElement;
 
 function drawPath(path: SVGPathElement, duration: number, delay: number) {
@@ -91,7 +92,8 @@ function jumpKalf() {
   }, 150);
 }
 
-newButton.addEventListener('click', loadKalf)
+nextButton.addEventListener('click', loadKalf)
+drawButton.addEventListener('click', drawKalf)
 drawingContainer.addEventListener('click', jumpKalf)
 loadKalf()
 drawKalf()
