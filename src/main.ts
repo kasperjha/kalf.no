@@ -108,7 +108,8 @@ nextButton.addEventListener('click', () => {
 
 // load previous drawing
 prevButton.addEventListener('click', () => {
-  index = (index - 1) % drawings.length;
+  index = index == 0 ? drawings.length - 1 : index - 1;
+  console.log(index)
   loadKalf(index);
 })
 
