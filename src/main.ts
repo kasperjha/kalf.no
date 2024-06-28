@@ -74,8 +74,10 @@ function updateCredits(credit?: KalfCredit) {
   }
 }
 
-function loadKalf() {
-  const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
+const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
+
+function loadKalf(drawingIndex: number) {
+  const randomDrawing = drawings[drawingIndex];
   drawingContainer.innerHTML = randomDrawing.svg;
   updateCredits(randomDrawing.credit);
 }
@@ -92,8 +94,17 @@ function jumpKalf() {
   }, 150);
 }
 
-nextButton.addEventListener('click', loadKalf)
+// load a random drawing to begin with
+let index = Math.floor(Math.random() * drawings.length);
+loadKalf(index);
+drawKalf()
+
+// load next drawing
+nextButton.addEventListener('click', () => {
+  index = (index + 1) % drawings.length;
+  loadKalf(index);
+})
+
 drawButton.addEventListener('click', drawKalf)
 drawingContainer.addEventListener('click', jumpKalf)
-loadKalf()
-drawKalf()
+
