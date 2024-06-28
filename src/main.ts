@@ -34,6 +34,7 @@ const drawings: KalfSubmission[] = [
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
+const prevButton = document.getElementById('kalf-prev') as HTMLButtonElement;
 const drawButton = document.getElementById('kalf-draw') as HTMLButtonElement;
 const nextButton = document.getElementById('kalf-next') as HTMLButtonElement;
 const creditContainer = document.getElementById('kalf-credit') as HTMLDivElement;
@@ -102,6 +103,12 @@ drawKalf()
 // load next drawing
 nextButton.addEventListener('click', () => {
   index = (index + 1) % drawings.length;
+  loadKalf(index);
+})
+
+// load previous drawing
+prevButton.addEventListener('click', () => {
+  index = (index - 1) % drawings.length;
   loadKalf(index);
 })
 
