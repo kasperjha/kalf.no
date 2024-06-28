@@ -22,7 +22,7 @@ const drawings: KalfSubmission[] = [
   { svg: kalfTwo },
   { svg: kalfThree },
   { svg: kalfFour },
-  { svg: kalfDana, credit: { by: '@dana_krm', byLink: 'https://instagram.com/dana_krm', date: '2026-06-23'} },
+  { svg: kalfDana, credit: { by: '@dana_krm', byLink: 'https://instagram.com/dana_krm', date: '2024-06-23'} },
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
