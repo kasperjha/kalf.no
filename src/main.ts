@@ -5,6 +5,10 @@ import kalfTwo from '/drawing-2.svg?raw';
 import kalfThree from '/drawing-3.svg?raw';
 import kalfFour from '/drawing-4.svg?raw';
 import kalfDana from '/dana.svg?raw';
+import kalfEva from '/eva.svg?raw';
+import kalfSerban from '/serban.svg?raw';
+import kalfManos from '/manos.svg?raw';
+import kalfRobin from '/robin.svg?raw';
 
 interface KalfCredit {
   by: string,
@@ -23,6 +27,10 @@ const drawings: KalfSubmission[] = [
   { svg: kalfThree },
   { svg: kalfFour },
   { svg: kalfDana, credit: { by: '@dana_krm', byLink: 'https://instagram.com/dana_krm', date: '2024-06-23'} },
+  { svg: kalfEva, credit: { by: '@evastk', byLink:'https://www.instagram.com/evahstk/', date: '2024-06-27'} },
+  { svg: kalfSerban, credit: { by: '@serbbi', byLink: 'https://instagram.com/serbbi', date: '2024-06-28'} },
+  { svg: kalfManos, credit: { by: '@manoskalostypis', byLink: 'https://instagram.com/manoskalostypis', date: '2024-06-28'} },
+  { svg: kalfRobin, credit: { by: 'robin', byLink: 'https://rzbin.com/', date: '2024-06-28'} },
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
