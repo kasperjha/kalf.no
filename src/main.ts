@@ -77,8 +77,6 @@ function updateCredits(credit?: KalfCredit) {
   }
 }
 
-const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
-
 function loadKalf(drawingIndex: number) {
   const randomDrawing = drawings[drawingIndex];
   drawingContainer.innerHTML = randomDrawing.svg;
