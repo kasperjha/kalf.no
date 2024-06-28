@@ -36,7 +36,9 @@ const drawings: KalfSubmission[] = [
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
-const newButton = document.getElementById('kalf-new') as HTMLButtonElement;
+const prevButton = document.getElementById('kalf-prev') as HTMLButtonElement;
+const drawButton = document.getElementById('kalf-draw') as HTMLButtonElement;
+const nextButton = document.getElementById('kalf-next') as HTMLButtonElement;
 const creditContainer = document.getElementById('kalf-credit') as HTMLDivElement;
 
 function drawPath(path: SVGPathElement, duration: number, delay: number) {
@@ -75,8 +77,10 @@ function updateCredits(credit?: KalfCredit) {
   }
 }
 
-function loadKalf() {
-  const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
+const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
+
+function loadKalf(drawingIndex: number) {
+  const randomDrawing = drawings[drawingIndex];
   drawingContainer.innerHTML = randomDrawing.svg;
   updateCredits(randomDrawing.credit);
 }
@@ -93,7 +97,23 @@ function jumpKalf() {
   }, 150);
 }
 
-newButton.addEventListener('click', loadKalf)
-drawingContainer.addEventListener('click', jumpKalf)
-loadKalf()
+// load a random drawing to begin with
+let index = Math.floor(Math.random() * drawings.length);
+loadKalf(index);
 drawKalf()
+
+// load next drawing
+nextButton.addEventListener('click', () => {
+  index = (index + 1) % drawings.length;
+  loadKalf(index);
+})
+
+// load previous drawing
+prevButton.addEventListener('click', () => {
+  index = (index - 1) % drawings.length;
+  loadKalf(index);
+})
+
+drawButton.addEventListener('click', drawKalf)
+drawingContainer.addEventListener('click', jumpKalf)
+
