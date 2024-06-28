@@ -56,9 +56,16 @@ function drawPath(path: SVGPathElement, duration: number, delay: number) {
 }
 
 function drawKalf() {
-  // TODO: use svg animate for perf
+  drawButton.disabled = true;
+  const duration = 2500;
+
+  setTimeout(() => {
+    drawButton.disabled = false;
+  }, duration);
+
   const path = drawingContainer.querySelector('path') as SVGPathElement;
-  drawPath(path, 2500, 25);
+
+  drawPath(path, duration, 25);
 }
 
 function updateCredits(credit?: KalfCredit) {
