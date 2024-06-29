@@ -9,6 +9,7 @@ import kalfRobin from '/robin.svg?raw';
 import kalfNikola from '/nikola.svg?raw';
 import kalfAna from '/ana.svg?raw';
 import kalfOscar from '/oscar.svg?raw';
+import kalfAlina from '/alina.svg?raw';
 
 interface KalfCredit {
   by: string,
@@ -31,6 +32,7 @@ const drawings: KalfSubmission[] = [
   { svg: kalfNikola, credit: { by: '@nikola', byLink: 'https://instagram.com/nikolazxvkovic', date: '2024-06-28'} },
   { svg: kalfAna, credit: { by: '@ana', byLink: 'https://instagram.com/ana_pintilie__', date: '2024-06-28'} },
   { svg: kalfOscar, credit: { by: '@oscar', byLink: 'https://instagram.com/oscar.def', date: '2024-06-29'} },
+  { svg: kalfAlina, credit: { by: '@alisha', byLink: 'https://www.instagram.com/alinaakopian22/', date: '2024-06-29'} },
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
