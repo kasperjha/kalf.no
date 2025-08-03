@@ -111,6 +111,7 @@ drawKalf()
 nextButton.addEventListener('click', () => {
   index = (index + 1) % drawings.length;
   loadKalf(index);
+  drawKalf()
 })
 
 // load previous drawing
@@ -118,6 +119,7 @@ prevButton.addEventListener('click', () => {
   index = index == 0 ? drawings.length - 1 : index - 1;
   console.log(index)
   loadKalf(index);
+  drawKalf()
 })
 
 drawButton.addEventListener('click', drawKalf)
