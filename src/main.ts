@@ -17,6 +17,7 @@ import kalfEmma from '/emma.svg?raw';
 import kalfFrida from '/frida.svg?raw';
 import kalfHans from '/hans.svg?raw';
 import kalfHenrik from '/henrik.svg?raw';
+import kalfAasmund from '/aasmund.svg?raw';
 
 interface KalfCredit {
   by: string,
@@ -47,6 +48,7 @@ const drawings: KalfSubmission[] = [
   { svg: kalfFrida, credit: { by: '@fridahansenhh', byLink: 'https://www.instagram.com/fridahansenhh', date: '2025-07-13'} },
   { svg: kalfHans, credit: { by: '@zvanz.mp3', byLink: 'https://www.instagram.com/zvanz.mp3', date: '2025-07-13'} },
   { svg: kalfHenrik, credit: { by: '@henrikoellestad', byLink: 'https://www.instagram.com/henrikoellestad', date: '2025-07-13'} },
+  { svg: kalfAasmund, credit: { by: '@oppned_studio', byLink: 'https://www.instagram.com/oppned_studio', date: '2025-07-13'} },
 ];
 
 const drawingContainer = document.getElementById('kalf-drawing') as HTMLDivElement;
