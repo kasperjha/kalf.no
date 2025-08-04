@@ -8,7 +8,7 @@
 
   <footer class="grid items-center grid-cols-3">
     <div>
-      <p>Drawn by</p>
+      <p>Drawing by</p>
       <NuxtLink
         v-if="drawing.credit.byLink"
         :to="drawing.credit.byLink"
