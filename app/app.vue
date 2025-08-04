@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col h-screen p-10">
     <h1 class="font-mono text-4xl">kalf.no</h1>
-    <p class="mt-1 text-gray-500">by <NuxtLink to="https://alfarnes.dev">kasper alfarnes</NuxtLink> </p>
+    <p class="mt-1 text-gray-500">by <NuxtLink class="underline" to="https://alfarnes.dev">kasper alfarnes</NuxtLink> </p>
 
     <div class="flex items-center justify-center flex-grow">
       <Kalf :kalf="drawing"/>
@@ -13,7 +13,7 @@
         <NuxtLink
           v-if="drawing.credit.byLink"
           :to="drawing.credit.byLink"
-          class="text-gray-500 lowercase"
+          class="text-gray-500 underline lowercase"
         >
           {{ drawing.credit.by }}
         </NuxtLink>
@@ -57,10 +57,3 @@ function randomDrawing() {
   drawingIdx.value = randomIndex()
 }
 </script>
-
-<style>
-  /* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser/72245072#72245072 */
-  a {
-    text-decoration: underline;
-  }
-</style>
