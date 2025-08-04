@@ -17,6 +17,7 @@ import kalfFrida from '~/assets/frida.svg?raw';
 import kalfHans from '~/assets/hans.svg?raw';
 import kalfHenrik from '~/assets/henrik.svg?raw';
 import kalfAasmund from '~/assets/aasmund.svg?raw';
+import kalfKjetil from '~/assets/kjetil.svg?raw';
 import type { KalfSubmission } from './types/KalfSubmission';
 
 
@@ -40,4 +41,5 @@ export const drawings: KalfSubmission[] = [
   { svg: kalfHans, credit: { by: '@zvanz.mp3', byLink: 'https://www.instagram.com/zvanz.mp3', date: '2025-07-13'} },
   { svg: kalfHenrik, credit: { by: '@henrikoellestad', byLink: 'https://www.instagram.com/henrikoellestad', date: '2025-07-13'} },
   { svg: kalfAasmund, credit: { by: '@oppned_studio', byLink: 'https://www.instagram.com/oppned_studio', date: '2025-07-13'} },
+  { svg: kalfKjetil, credit: { by: 'alfarnesarkitektur', date: '2025-08-04'} },
 ];
