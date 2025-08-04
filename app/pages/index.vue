@@ -54,7 +54,6 @@ function randomDrawing() {
 }
 
 function redraw() {
-  console.log(kalfDrawing.value)
   kalfDrawing.value.redraw()
 }
 </script>

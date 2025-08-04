@@ -16,21 +16,26 @@ interface Props {
 
 const props = defineProps<Props>()
 const container = useTemplateRef('kalf-drawing')
+const isDrawing = ref(false)
 
 function load() {
-  console.log('loading kalf');
-
   if(!container.value) {
     throw new Error('Drawing container is undefined.')
   }
 
   const path = container.value.querySelector('path') as SVGPathElement;
-  console.log(path)
+
+  if(isDrawing.value === true) {
+    return;
+  }
+
+  isDrawing.value = true;
   drawPath(path, 2500, 25)
 }
 
 defineExpose({
   redraw: load,
+  isDrawing: isDrawing,
 })
 
 function drawPath(path: SVGPathElement, duration: number, delay: number) {
@@ -48,12 +53,19 @@ function drawPath(path: SVGPathElement, duration: number, delay: number) {
       numSteps -= 1;
       setTimeout(step, delay);
     }
+
+    if(numSteps === 0) {
+      isDrawing.value = false;
+    }
   }
 
   step()
 }
 
-watch(props, () => setTimeout(load, 50))
+watch(props, () => {
+  isDrawing.value = false;
+  setTimeout(load, 50)
+})
 onMounted(() => {
   setTimeout(load, 50)
 })
