@@ -17,26 +17,25 @@
           {{ drawing.credit.date }}
         </p>
       </p>
-
-      <div>
-        <button @click="prevDrawing" class="p-4 text-gray-600 underline touch-manipulation">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-            <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
-          </svg>
-        </button>
-
-        <button @click="nextDrawing" class="p-4 text-gray-600 underline touch-manipulation">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-            <path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" />
-          </svg>
-        </button>
-      </div>
-
     </div>
 
-    <footer>
-      <p>Kasper Alfarnes</p>
-      <p class="text-gray-500">Freelance Developer</p>
+    <footer class="grid items-center grid-cols-3">
+      <div>
+        <p>Kasper Alfarnes</p>
+        <p class="text-gray-500">Freelance Developer</p>
+        <!-- <p class="">Drawn by</p>
+        <p class="text-gray-500 lowercase">{{ drawing.credit.by}}</p> -->
+      </div>
+      <div class="flex items-center justify-center gap-4">
+        <!-- <button class="flex flex-col items-center gap-1">
+          <Icon name="humbleicons:view-grid"  class="size-5" />
+          <p class="text-xs">Browse</p>
+        </button> -->
+        <button @click="randomDrawing" class="flex flex-col items-center gap-1">
+          <Icon name="humbleicons:refresh"  class="size-5" />
+          <p class="text-xs">Random</p>
+        </button>
+      </div>
     </footer>
 
   </div>
@@ -55,12 +54,12 @@ import type { KalfSubmission } from './types/KalfSubmission';
 const drawingIdx = ref(0);
 const drawing = computed(() => drawings[drawingIdx.value] as KalfSubmission)
 
-function nextDrawing() {
-  drawingIdx.value = (drawingIdx.value + 1) % drawings.length
+function randomIndex() {
+  return Math.floor(Math.random() * drawings.length);
 }
 
-function prevDrawing() {
-  drawingIdx.value = drawingIdx.value == 0 ? drawings.length - 1 : drawingIdx.value - 1;
+function randomDrawing() {
+  drawingIdx.value = randomIndex()
 }
 </script>
 
