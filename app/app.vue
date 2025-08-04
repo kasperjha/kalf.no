@@ -1,5 +1,5 @@
 <template>
-  <Body class="flex flex-col p-10">
+  <div class="flex flex-col h-screen p-10">
     <h1 class="font-mono text-4xl">kalf.no</h1>
 
     <div class="flex flex-col items-center justify-center flex-grow">
@@ -49,7 +49,7 @@
       <p class="text-gray-500">Freelance Developer</p>
     </footer>
 
-  </Body>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -111,9 +111,6 @@ function drawKalf() {
 
 <style>
   /* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser/72245072#72245072 */
-  body {
-    height: 100dvh;
-  }
   a {
     text-decoration: underline;
   }
