@@ -1,30 +1,25 @@
 <template>
   <div class="flex flex-col h-screen p-10">
     <h1 class="font-mono text-4xl">kalf.no</h1>
+    <p class="mt-1 text-gray-500">by <NuxtLink to="https://alfarnes.dev">kasper alfarnes</NuxtLink> </p>
 
-    <div class="flex flex-col items-center justify-center flex-grow">
-
+    <div class="flex items-center justify-center flex-grow">
       <Kalf :kalf="drawing"/>
-
-      <p v-if="drawing.credit" id="kalf-credit" class="h-10 mb-6 text-sm text-center text-gray-600">
-        <NuxtLink v-if="drawing.credit.byLink" :to="drawing.credit.byLink">
-          {{ drawing.credit.by }}
-        </NuxtLink>
-        <p v-else>
-          {{ drawing.credit.by }}
-        </p>
-        <p v-if="drawing.credit.date">
-          {{ drawing.credit.date }}
-        </p>
-      </p>
     </div>
 
     <footer class="grid items-center grid-cols-3">
       <div>
-        <p>Kasper Alfarnes</p>
-        <p class="text-gray-500">Freelance Developer</p>
-        <!-- <p class="">Drawn by</p>
-        <p class="text-gray-500 lowercase">{{ drawing.credit.by}}</p> -->
+        <p>Drawn by</p>
+        <NuxtLink
+          v-if="drawing.credit.byLink"
+          :to="drawing.credit.byLink"
+          class="text-gray-500 lowercase"
+        >
+          {{ drawing.credit.by }}
+        </NuxtLink>
+        <p v-else class="text-gray-500 lowercase">
+          {{ drawing.credit.by}}
+        </p>
       </div>
       <div class="flex items-center justify-center gap-4">
         <!-- <button class="flex flex-col items-center gap-1">
