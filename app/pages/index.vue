@@ -1,12 +1,11 @@
 <template>
   <h1 class="font-mono text-4xl">kalf.no</h1>
-  <p class="mt-1 text-gray-500">by <NuxtLink class="underline" to="https://alfarnes.dev">kasper alfarnes</NuxtLink> </p>
 
   <div class="flex items-center justify-center flex-grow">
     <Kalf ref="kalf-drawing" :kalf="drawing" />
   </div>
 
-  <footer class="grid items-center grid-cols-3">
+  <footer class="grid items-center gap-10 sm:grid-cols-3">
     <div>
       <p>Drawing by</p>
       <NuxtLink
