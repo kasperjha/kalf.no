@@ -23,6 +23,10 @@ importers:
       vue-router:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.18(typescript@5.9.2))
+    devDependencies:
+      '@iconify-json/humbleicons':
+        specifier: ^1.2.10
+        version: 1.2.10
 
 packages:
 
@@ -505,6 +509,9 @@ packages:
 
   '@fastify/busboy@3.1.1':
     resolution: {integrity: sha512-5DGmA8FTdB2XbDeEwc/5ZXBl6UbBAyBOOLlPuBnZ/N1SwdH9Ii+cOX3tBROlDgcTXxjOYnLMVoKk9+FXAw0CJw==}
+
+  '@iconify-json/humbleicons@1.2.10':
+    resolution: {integrity: sha512-+Oq0Erm++3PhORc7y4P57cX74AEiXDbiUZ6DgX9bppQs3V7bkvjAO2eotez7kLlchr9aXP3m7kCtcFokmvImpg==}
 
   '@iconify/collections@1.0.576':
     resolution: {integrity: sha512-qUDT6dLCPy4d5Hel4ZH5BoK3tnkxIqxFVJOao8m5/gq/+544zesdnbEfwOTGxHhCn7Gu8YspY/QnQx0vI9FkPQ==}
@@ -4606,6 +4613,10 @@ snapshots:
     optional: true
 
   '@fastify/busboy@3.1.1': {}
+
+  '@iconify-json/humbleicons@1.2.10':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/collections@1.0.576':
     dependencies:
