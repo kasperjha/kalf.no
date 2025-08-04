@@ -20,15 +20,15 @@
       </p>
     </div>
     <div class="flex items-center justify-center gap-4">
-      <NuxtLink to="/gallery" class="flex flex-col items-center gap-1">
+      <NuxtLink to="/gallery" class="flex flex-col items-center gap-1 touch-manipulation">
         <Icon name="humbleicons:view-grid"  class="size-5" />
         <p class="text-xs">Browse</p>
       </NuxtLink>
-      <button @click="randomDrawing" class="flex flex-col items-center gap-1">
+      <button @click="randomDrawing" class="flex flex-col items-center gap-1 touch-manipulation">
         <Icon name="humbleicons:refresh"  class="size-5" />
         <p class="text-xs">Random</p>
       </button>
-      <button @click="redraw" class="flex flex-col items-center gap-1">
+      <button @click="redraw" class="flex flex-col items-center gap-1 touch-manipulation">
         <Icon name="humbleicons:pencil"  class="size-5" />
         <p class="text-xs">Redraw</p>
       </button>
