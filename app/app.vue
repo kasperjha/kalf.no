@@ -6,6 +6,7 @@
 
       <button
         ref="kalf-drawing"
+        id="kalf-drawing"
         class="flex items-center justify-center w-64 h-64 cursor-default touch-manipulation"
         v-html="drawing.svg"
       />
@@ -105,7 +106,7 @@ function drawKalf() {
     throw new Error('Drawing container is undefined.')
   }
   const path = drawingContainer.value.querySelector('path') as SVGPathElement;
-  drawPath(path, 2500, 25);
+  drawPath(path, 2500, 15);
 }
 </script>
 
@@ -113,5 +114,11 @@ function drawKalf() {
   /* https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser/72245072#72245072 */
   a {
     text-decoration: underline;
+  }
+  #kalf-drawing {
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>
