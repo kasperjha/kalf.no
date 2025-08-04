@@ -29,6 +29,10 @@ function load() {
   drawPath(path, 2500, 25)
 }
 
+defineExpose({
+  redraw: load,
+})
+
 function drawPath(path: SVGPathElement, duration: number, delay: number) {
   let pathLength = path.getTotalLength();
   path.style.strokeDasharray = pathLength.toString();
