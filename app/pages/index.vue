@@ -20,6 +20,10 @@
       </p>
     </div>
     <div class="flex items-center justify-center gap-4">
+      <NuxtLink to="/gallery" class="flex flex-col items-center gap-1">
+        <Icon name="humbleicons:view-grid"  class="size-5" />
+        <p class="text-xs">Browse</p>
+      </NuxtLink>
       <button @click="randomDrawing" class="flex flex-col items-center gap-1">
         <Icon name="humbleicons:refresh"  class="size-5" />
         <p class="text-xs">Random</p>
