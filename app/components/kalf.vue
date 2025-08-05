@@ -59,6 +59,8 @@ function drawPath(path: SVGPathElement, speed: number = 20) {
 
     if (shift < length) {
       requestAnimationFrame(step)
+    } else {
+      isDrawing.value = false;
     }
   }
 
