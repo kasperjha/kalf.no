@@ -5,7 +5,7 @@
     <Kalf v-if="drawing" ref="kalf-drawing" :kalf="drawing" />
   </div>
 
-  <footer class="grid items-center gap-10 sm:grid-cols-3">
+  <footer class="grid gap-10 sm:grid-cols-3">
     <div>
       <p>Drawn by</p>
       <NuxtLink
@@ -18,7 +18,7 @@
         {{ drawing.credit.by }}
       </NuxtLink>
     </div>
-    <div class="flex items-center justify-center gap-4">
+    <div class="flex items-center justify-center h-12 gap-4">
       <NuxtLink to="/gallery" class="flex flex-col items-center gap-1 touch-manipulation">
         <Icon name="humbleicons:view-grid"  class="size-5" />
         <p class="text-xs">Browse</p>
