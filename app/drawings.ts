@@ -11,6 +11,7 @@ import kalfOscar from '~/assets/oscar.svg?raw';
 import kalfAlina from '~/assets/alina.svg?raw';
 import kalfDiana from '~/assets/diana.svg?raw';
 import kalfJosh from '~/assets/josh.svg?raw';
+import kalfVaszilia from '~/assets/vaszilia.svg';
 import kalfEnis from '~/assets/enis.svg?raw';
 import kalfFridth from '~/assets/fridth.svg?raw';
 import kalfSander from '~/assets/sander.svg?raw';
@@ -39,6 +40,7 @@ export const drawings: KalfSubmission[] = [
   { svg: kalfAlina, credit: { by: '@alisha', byLink: 'https://www.instagram.com/alinaakopian22/', date: '2024-06-29'} },
   { svg: kalfDiana, credit: { by: '@dianette999', byLink: 'https://www.instagram.com/dianette999/', date: '2024-07-02'} },
   { svg: kalfJosh, credit: { by: '@josh__mllr', byLink: 'https://www.instagram.com/josh__mllr/', date: '2024-07-02'} },
+  { svg: kalfVaszilia, credit: { by: '@vaszilia', byLink: 'https://www.instagram.com/vaszilia/', date: '2024-07-10'} },
   { svg: kalfEnis, credit: { by: 'eniSALIMSADEH', date: '2025-07-13'} },
   { svg: kalfFridth, credit: { by: 'FQ', date: '2025-07-13'} },
   { svg: kalfSander, credit: { by: '@sa.schroder', byLink: 'https://www.instagram.com/sa.schroder', date: '2025-07-13'} },
