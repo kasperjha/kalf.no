@@ -11,7 +11,7 @@ import kalfOscar from '~/assets/oscar.svg?raw';
 import kalfAlina from '~/assets/alina.svg?raw';
 import kalfDiana from '~/assets/diana.svg?raw';
 import kalfJosh from '~/assets/josh.svg?raw';
-import kalfVaszilia from '~/assets/vaszilia.svg';
+import kalfVaszilia from '~/assets/vaszilia.svg?raw';
 import kalfEnis from '~/assets/enis.svg?raw';
 import kalfFridth from '~/assets/fridth.svg?raw';
 import kalfSander from '~/assets/sander.svg?raw';
