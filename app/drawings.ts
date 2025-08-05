@@ -19,6 +19,7 @@ import kalfHenrik from '~/assets/henrik.svg?raw';
 import kalfAasmund from '~/assets/aasmund.svg?raw';
 import kalfKjetil from '~/assets/kjetil.svg?raw';
 import kalfVetle from '~/assets/vetle.svg?raw';
+import kalfEli from '~/assets/eli.svg?raw';
 import type { KalfSubmission } from './types/KalfSubmission';
 
 
@@ -44,4 +45,5 @@ export const drawings: KalfSubmission[] = [
   { svg: kalfAasmund, credit: { by: '@oppned_studio', byLink: 'https://www.instagram.com/oppned_studio', date: '2025-07-13'} },
   { svg: kalfKjetil, credit: { by: 'alfarnesarkitektur', date: '2025-08-04'} },
   { svg: kalfVetle, credit: { by: 'vetleas', date: '2025-08-04'} },
+  { svg: kalfEli, credit: { by: 'ealfa', date: '2025-08-05'} },
 ];
