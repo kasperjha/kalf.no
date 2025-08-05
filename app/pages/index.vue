@@ -32,6 +32,10 @@
         <Icon name="humbleicons:pencil"  class="size-5" />
         <p class="text-xs">Redraw</p>
       </button>
+      <button @click="share" v-if="canShare()" class="flex flex-col items-center gap-1 touch-manipulation">
+        <Icon name="humbleicons:share"  class="size-5" />
+        <p class="text-xs">Share</p>
+      </button>
     </div>
   </footer>
 </template>
@@ -40,9 +44,33 @@
 import { drawings } from '../drawings';
 import type { KalfSubmission } from '../types/KalfSubmission';
 
+
+const route = useRoute();
+const router = useRouter()
 const drawingIdx = ref(0);
+
+function updateDrawing() {
+  if (route.query.by) {
+    const submissionIdx = drawings.findIndex((drawing) => drawing.credit?.by === route.query.by)
+    drawingIdx.value = submissionIdx
+  }
+}
+
+function updateRoute() {
+  if (!drawing.value.credit) {
+    return;
+  }
+  router.push({
+    query: { by: drawing.value.credit.by }
+  })
+}
+
+
 const drawing = computed(() => drawings[drawingIdx.value] as KalfSubmission)
 const kalfDrawing = useTemplateRef('kalf-drawing')
+
+watch(route, updateDrawing, { immediate: true })
+watch(drawing, updateRoute, { immediate: true })
 
 function randomIndex() {
   return Math.floor(Math.random() * drawings.length);
@@ -54,6 +82,27 @@ function randomDrawing() {
 
 function redraw() {
   kalfDrawing.value.redraw()
+}
+
+function getShareData() {
+  return {
+    url: `https://kalf.no/?by=${drawing.value.credit?.by}`,
+    text: `kalf drawn by ${drawing.value.credit?.by}`
+  }
+}
+
+function canShare() {
+  try {
+    const data = getShareData()
+    return navigator.canShare(data)
+  } catch {
+    return false;
+  }
+}
+
+function share() {
+  const data = getShareData()
+  navigator.share(data)
 }
 </script>
 

@@ -15,19 +15,12 @@ import { drawings } from '~/drawings';
 
     <div class="flex justify-center">
       <div class="grid gap-20 sm:grid-cols-2 md:grid-cols-3">
-        <div v-for="drawing in drawings" class="flex flex-col items-center gap-3">
-          <Kalf :kalf="drawing"/>
-          <NuxtLink
-            v-if="drawing.credit.byLink"
-            :to="drawing.credit.byLink"
-            class="text-gray-500 underline lowercase"
-          >
-            {{ drawing.credit.by }}
-          </NuxtLink>
-          <p v-else class="text-gray-500 lowercase">
+        <NuxtLink v-for="drawing in drawings" :to='`/?by=${drawing.credit.by}`' class="flex flex-col items-center gap-3 cursor-pointer">
+          <Kalf :kalf="drawing" class="cursor-pointer"/>
+          <p class="text-gray-500 lowercase">
             {{ drawing.credit.by }}
           </p>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>
