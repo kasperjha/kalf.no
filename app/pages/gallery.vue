@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import { drawings } from '~/drawings';
+import type { KalfSubmission } from '~/types/KalfSubmission';
+
+function sortSubmissionsByDate(submissions: KalfSubmission[]): KalfSubmission[] {
+  return [...submissions].sort((a, b) => {
+    return new Date(b.credit.date).getTime() - new Date(a.credit.date).getTime();
+  });
+}
+
+const sorted = sortSubmissionsByDate(drawings)
 
 </script>
 
@@ -15,7 +24,7 @@ import { drawings } from '~/drawings';
 
     <div class="flex justify-center">
       <div class="grid gap-20 sm:grid-cols-2 md:grid-cols-3">
-        <NuxtLink v-for="drawing in drawings" :to='`/?by=${drawing.credit.by}`' class="flex flex-col items-center gap-3 cursor-pointer">
+        <NuxtLink v-for="drawing in sorted" :to='`/?by=${drawing.credit.by}`' class="flex flex-col items-center gap-3 cursor-pointer">
           <Kalf :kalf="drawing" class="cursor-pointer"/>
           <p class="text-gray-500 lowercase">
             {{ drawing.credit.by }}
