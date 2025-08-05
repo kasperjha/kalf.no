@@ -8,9 +8,9 @@ export function useDrawing() {
   const randomIndex = () => Math.floor(Math.random() * drawings.length)
 
   /**
-   * A reactive drawing.
+   * A reactive reference to kalf drawing.
    */
-  const drawing = ref<KalfSubmission>(drawings[0] as KalfSubmission)
+  const drawing = ref<KalfSubmission | undefined>(undefined)
 
   /**
    * Switch to a random drawing.

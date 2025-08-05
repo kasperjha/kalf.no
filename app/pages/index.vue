@@ -1,23 +1,22 @@
 <template>
   <h1 class="font-mono text-4xl">kalf.no</h1>
 
-  <div class="flex items-center justify-center flex-grow">
-    <Kalf ref="kalf-drawing" :kalf="drawing" />
+  <div class="flex items-center justify-center flex-grow" >
+    <Kalf v-if="drawing" ref="kalf-drawing" :kalf="drawing" />
   </div>
 
   <footer class="grid items-center gap-10 sm:grid-cols-3">
     <div>
       <p>Drawn by</p>
       <NuxtLink
-        v-if="drawing.credit.byLink"
+        v-if="drawing"
         :to="drawing.credit.byLink"
-        class="text-gray-500 underline lowercase"
+        :key="drawing"
+        class="text-gray-500 lowercase"
+        :class="{ 'underline': drawing.credit.byLink }"
       >
         {{ drawing.credit.by }}
       </NuxtLink>
-      <p v-else class="text-gray-500 lowercase">
-        {{ drawing.credit.by}}
-      </p>
     </div>
     <div class="flex items-center justify-center gap-4">
       <NuxtLink to="/gallery" class="flex flex-col items-center gap-1 touch-manipulation">
@@ -54,7 +53,7 @@ function updateDrawing() {
 }
 
 function updateRoute() {
-  if (!drawing.value.credit) {
+  if (!drawing.value || !drawing.value.credit) {
     return;
   }
   router.push({
@@ -63,6 +62,7 @@ function updateRoute() {
 }
 
 onMounted(() => {
+  randomDrawing()
   watch(route, updateDrawing, { immediate: true })
   watch(drawing, updateRoute, { immediate: true })
 })
@@ -72,6 +72,10 @@ function redraw() {
 }
 
 function getShareData() {
+  if(!drawing.value) {
+    throw new Error('No drawing loaded.')
+  }
+
   return {
     url: `https://kalf.no/?by=${drawing.value.credit?.by}`,
     text: `kalf drawn by ${drawing.value.credit?.by}`
