@@ -1,5 +1,6 @@
 <template>
   <button
+    v-show="isReady"
     ref="kalf-drawing"
     id="kalf-drawing"
     class="flex items-center justify-center w-64 h-64 cursor-default touch-manipulation"
@@ -16,6 +17,7 @@ interface Props {
 
 const props = defineProps<Props>()
 const container = useTemplateRef('kalf-drawing')
+const isReady = ref(false)
 const isDrawing = ref(false)
 
 function load() {
@@ -63,11 +65,18 @@ function drawPath(path: SVGPathElement, duration: number, delay: number) {
 }
 
 watch(props, () => {
+  isReady.value = false;
   isDrawing.value = false;
-  setTimeout(load, 50)
+  setTimeout(() => {
+    isReady.value = true;
+    load()
+  }, 50)
 })
 onMounted(() => {
-  setTimeout(load, 50)
+  setTimeout(() => {
+    isReady.value = true;
+    load()
+  }, 200)
 })
 </script>
 
