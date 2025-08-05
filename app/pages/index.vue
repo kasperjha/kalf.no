@@ -32,6 +32,10 @@
         <Icon name="humbleicons:pencil"  class="size-5" />
         <p class="text-xs">Redraw</p>
       </button>
+      <button @click="share" v-if="canShare()" class="flex flex-col items-center gap-1 touch-manipulation">
+        <Icon name="humbleicons:share"  class="size-5" />
+        <p class="text-xs">Share</p>
+      </button>
     </div>
   </footer>
 </template>
@@ -78,6 +82,27 @@ function randomDrawing() {
 
 function redraw() {
   kalfDrawing.value.redraw()
+}
+
+function getShareData() {
+  return {
+    url: `https://kalf.no/?by=${drawing.value.credit?.by}`,
+    text: `kalf drawn by ${drawing.value.credit?.by}`
+  }
+}
+
+function canShare() {
+  try {
+    const data = getShareData()
+    return navigator.canShare(data)
+  } catch {
+    return false;
+  }
+}
+
+function share() {
+  const data = getShareData()
+  navigator.share(data)
 }
 </script>
 
