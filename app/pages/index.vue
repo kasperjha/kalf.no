@@ -62,8 +62,10 @@ function updateRoute() {
   })
 }
 
-watch(route, updateDrawing, { immediate: true })
-watch(drawing, updateRoute, { immediate: true })
+onMounted(() => {
+  watch(route, updateDrawing, { immediate: true })
+  watch(drawing, updateRoute, { immediate: true })
+})
 
 function redraw() {
   kalfDrawing.value.redraw()
