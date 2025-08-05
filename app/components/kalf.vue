@@ -32,7 +32,7 @@ function load() {
   }
 
   isDrawing.value = true;
-  drawPath(path, 2500, 25)
+  drawPath(path, 0.3)
 }
 
 defineExpose({
@@ -40,28 +40,29 @@ defineExpose({
   isDrawing: isDrawing,
 })
 
-function drawPath(path: SVGPathElement, duration: number, delay: number) {
-  let pathLength = path.getTotalLength();
-  path.style.strokeDasharray = pathLength.toString();
-  path.style.strokeDashoffset = pathLength.toString();
+/**
+ * Animate SVG path to be drawn incrementally.
+ */
+function drawPath(path: SVGPathElement, speed: number = 20) {
+  const length = path.getTotalLength()
+  path.style.strokeDasharray = length.toString()
+  path.style.strokeDashoffset = length.toString()
 
-  let numSteps = (duration / delay);
+  let start: number | undefined = undefined;
 
-  const step = () => {
-    pathLength -= pathLength / numSteps;
-    path.style.strokeDashoffset = pathLength.toString();
-
-    if(1 <= numSteps ) {
-      numSteps -= 1;
-      setTimeout(step, delay);
+  const step = (timestamp: number) => {
+    if (start === undefined) {
+      start = timestamp;
     }
+    const shift = Math.min((timestamp - start) * speed, length)
+    path.style.strokeDashoffset = `${length - shift}`;
 
-    if(numSteps === 0) {
-      isDrawing.value = false;
+    if (shift < length) {
+      requestAnimationFrame(step)
     }
   }
 
-  step()
+  requestAnimationFrame(step)
 }
 
 watch(props, () => {
