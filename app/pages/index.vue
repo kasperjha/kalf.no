@@ -41,18 +41,15 @@
 </template>
 
 <script lang="ts" setup>
-import { drawings } from '../drawings';
-import type { KalfSubmission } from '../types/KalfSubmission';
-
-
 const route = useRoute();
 const router = useRouter()
-const drawingIdx = ref(0);
+
+const {drawing, randomDrawing, setDrawing} = useDrawing()
+const kalfDrawing = useTemplateRef('kalf-drawing')
 
 function updateDrawing() {
   if (route.query.by) {
-    const submissionIdx = drawings.findIndex((drawing) => drawing.credit?.by === route.query.by)
-    drawingIdx.value = submissionIdx
+    setDrawing(route.query.by.toString())
   }
 }
 
@@ -65,20 +62,8 @@ function updateRoute() {
   })
 }
 
-
-const drawing = computed(() => drawings[drawingIdx.value] as KalfSubmission)
-const kalfDrawing = useTemplateRef('kalf-drawing')
-
 watch(route, updateDrawing, { immediate: true })
 watch(drawing, updateRoute, { immediate: true })
-
-function randomIndex() {
-  return Math.floor(Math.random() * drawings.length);
-}
-
-function randomDrawing() {
-  drawingIdx.value = randomIndex()
-}
 
 function redraw() {
   kalfDrawing.value.redraw()
