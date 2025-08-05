@@ -40,9 +40,33 @@
 import { drawings } from '../drawings';
 import type { KalfSubmission } from '../types/KalfSubmission';
 
+
+const route = useRoute();
+const router = useRouter()
 const drawingIdx = ref(0);
+
+function updateDrawing() {
+  if (route.query.by) {
+    const submissionIdx = drawings.findIndex((drawing) => drawing.credit?.by === route.query.by)
+    drawingIdx.value = submissionIdx
+  }
+}
+
+function updateRoute() {
+  if (!drawing.value.credit) {
+    return;
+  }
+  router.push({
+    query: { by: drawing.value.credit.by }
+  })
+}
+
+
 const drawing = computed(() => drawings[drawingIdx.value] as KalfSubmission)
 const kalfDrawing = useTemplateRef('kalf-drawing')
+
+watch(route, updateDrawing, { immediate: true })
+watch(drawing, updateRoute, { immediate: true })
 
 function randomIndex() {
   return Math.floor(Math.random() * drawings.length);
