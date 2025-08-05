@@ -81,11 +81,7 @@ function getShareData() {
   if(!drawing.value) {
     throw new Error('No drawing loaded.')
   }
-
-  return {
-    url: `https://kalf.no/?by=${drawing.value.credit?.by}`,
-    text: `kalf drawn by ${drawing.value.credit?.by}`
-  }
+  return { url: `https://kalf.no/?by=${drawing.value.credit?.by}` }
 }
 
 function canShare() {
