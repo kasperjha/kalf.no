@@ -7,16 +7,22 @@
 
   <footer class="grid gap-10 sm:grid-cols-3">
     <div>
-      <p>Drawn by</p>
-      <NuxtLink
-        v-if="drawing"
-        :to="drawing.credit.byLink"
-        :key="drawing"
-        class="text-gray-500 lowercase"
-        :class="{ 'underline': drawing.credit.byLink }"
-      >
-        {{ drawing.credit.by }}
-      </NuxtLink>
+      <Transition mode="out-in">
+        <p v-if="drawing">
+          Drawn by
+        </p>
+      </Transition>
+      <Transition mode="out-in">
+        <NuxtLink
+          v-if="drawing"
+          :to="drawing.credit.byLink"
+          :key="drawing"
+          class="text-gray-500 lowercase"
+          :class="{ 'underline': drawing.credit.byLink }"
+        >
+          {{ drawing.credit.by }}
+        </NuxtLink>
+      </Transition>
     </div>
     <div class="flex items-center justify-center h-12 gap-4">
       <NuxtLink to="/gallery" class="flex flex-col items-center gap-1 touch-manipulation">
@@ -97,3 +103,14 @@ function share() {
 }
 </script>
 
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 150ms ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>
