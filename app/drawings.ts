@@ -24,6 +24,7 @@ import kalfKjetil from '~/assets/kjetil.svg?raw';
 import kalfVetle from '~/assets/vetle.svg?raw';
 import kalfEli from '~/assets/eli.svg?raw';
 import kalfMarijke from '~/assets/marijke.svg?raw';
+import kalfMarie from '~/assets/marie.svg?raw';
 
 import type { KalfSubmission } from './types/KalfSubmission';
 
@@ -55,4 +56,5 @@ export const drawings: KalfSubmission[] = [
   { svg: kalfVetle, credit: { by: 'vetleas', date: '2025-08-04'} },
   { svg: kalfEli, credit: { by: 'ealfa', date: '2025-08-05'} },
   { svg: kalfMarijke, credit: { by: '@marijkehopen',  byLink: 'https://www.instagram.com/marijkehopen', date: '2025-08-06'} },
+  { svg: kalfMarie, credit: { by: '@marie.hano',  byLink: 'https://www.instagram.com/marie.hano', date: '2025-08-08'} },
 ];
